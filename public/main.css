@@ -1,0 +1,119 @@
+body {
+	background-color: rgb(223, 223, 223);
+	color: black;
+}
+button {
+	cursor: pointer;
+}
+/* Navbar */
+.nav {
+	font-style: italic;
+	display: flex;
+	justify-content: space-between;
+	margin-top: -15px;
+}
+
+.nav h1 {
+	font-family: "Pacifico", cursive;
+	font-size: 30px;
+	font-weight: bold;
+	color: rgb(22, 21, 21);
+	margin-left: 40px;
+}
+
+.nav ul {
+	display: flex;
+	gap: 5px;
+	margin-top: 27px;
+}
+
+.nav ul li {
+	list-style: none;
+	padding: 5px;
+	margin: 5px;
+}
+.nav ul li a {
+	font-size: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.nav ul li a:hover {
+	color: rgb(65, 64, 64);
+}
+
+.nav button {
+	display: block;
+	background-color: rgb(12, 12, 12);
+	color: white;
+	font-size: 17px;
+	font-style: italic;
+	font-weight: lighter;
+	border: none;
+	border-radius: 10px;
+	padding: 15px 18px;
+	height: 48px;
+	margin-top: 27px;
+	margin-right: 40px;
+}
+
+/* Hero */
+.home {
+	display: flex;
+	justify-content: space-between;
+}
+.hero {
+	font-style: italic;
+	margin-left: 50px;
+	margin-top: 70px;
+	line-height: 1.7;
+}
+
+.hero h1 {
+	font-family: "Pacifico", cursive;
+	font-weight: 400;
+	font-style: normal;
+	width: 400px;
+}
+
+.hero p {
+	font-weight: lighter;
+	font-size: 22px;
+	width: 550px;
+}
+
+.hero span {
+	font-family: "Pacifico", cursive;
+	font-weight: normal;
+	font-size: 25px;
+}
+
+.hero button {
+	display: block;
+	background-color: rgb(12, 12, 12);
+	color: white;
+	font-size: 17px;
+	font-style: italic;
+	font-weight: lighter;
+	border: none;
+	border-radius: 10px;
+	padding: 15px 18px;
+	margin-top: 15px;
+}
+
+.home img {
+	margin-top: 20px;
+}
+
+/* About */
+.about {
+	display: flex;
+	justify-content: center;
+}
+
+.about h1 {
+	font-family: "Pacifico", cursive;
+	font-weight: 400;
+	font-style: normal;
+	margin-top: -20px;
+}
