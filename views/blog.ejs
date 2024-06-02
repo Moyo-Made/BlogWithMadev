@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/main.css" />
+		<title>Create a Blog</title>
+	</head>
+	<body>
+		<%- include("partials/navbar.ejs") %>
+		<section class="blog">
+		<!-- Conditional message and button for creating the first blog post -->
+		<section id="initial-message" <% if (blogs && blogs.length>
+			0) { %>style="display: none;"<% } %>>
+			<h2>Create your first blog post here!</h2>
+		</section>
+			<!-- Button to trigger the form -->
+			<section id="create-blog-section" >
+				<button id="create-blog-button" type="button">Create a New Blog</button>
+			</section>
+
+		<!-- Add new blogs -->
+		<section id="add-blog-posts" style="display: none">
+			<h2>Add a New Blog Post</h2>
+			<form action="/save" method="post">
+				<div>
+					<label class="title" for="title">Title:</label>
+					<input type="text" name="title" id="title" required />
+				</div>
+				<div class="text-area">
+					<label class="desc" for="description">Description:</label>
+					<textarea name="description" id="description" required></textarea>
+				</div>
+				<button type="submit">Add Blog Post</button>
+			</form>
+		</section>
+
+		
+		<!-- Existing blog post -->
+		<section id="existing-blog-post" <% if (!blogs || blogs.length === 0) { %>style="display: none;"<% } %>>
+			<h2>Existing blog post</h2>
+
+			<% if (blogs && blogs.length > 0){ %>
+			<ul>
+				<% blogs.forEach((blog, index) => { %>
+					<h3><%= blog.title %></h3>
+					<button class="add-description-button" data-index="<%= index %>">View Blog</button>
+					<p class="blog-description-full" id="full-desc-<%= index %>" style="display: none;">
+						<%= blog.description %>
+					</p>
+				<!-- Update button -->
+				<button class="update-button" data-index="0">Update</button>
+        
+				<!-- Update form, initially hidden -->
+				<form class="update-form" action="/update/0" method="POST" style="display: none;">
+					<div>
+						<label class="title" for="title-0">Title:</label>
+						<input type="text" name="title" value="<%= blog.title %>" id="title-0" required />
+					</div>
+					<div>
+						<label class="desc" for="description-0">Description:</label>
+						<textarea name="description" id="description-0" required><%= blog.description %></textarea>
+					</div>
+					<button class="update-blog" type="submit">Update </button>
+				</form>
+				<form action="/delete/<%= index %>" method="POST" style="display:inline;">
+					<button class="delete-button" type="submit">Delete</button>
+				</form>
+				
+				<% }) %>
+			</ul>
+			<% } else{ %>
+			<p>No blog posts found!</p>
+			<% } %>
+			
+		</section>
+	</section>
+		<script src="/script.js"></script>
+	</body>
+</html>
